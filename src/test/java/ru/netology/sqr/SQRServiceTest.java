@@ -1,17 +1,16 @@
 package ru.netology.sqr;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SQRServiceTest {
 
-    @Test
-    void shouldEnumeration() {
+    @ParameterizedTest
+    @CsvSource(value = {"200,300,3", "200,250,1"})
+    void shouldEnumeration(int minNumber, int maxNumber, int expected) {
         SQRService squares = new SQRService();
-
-        int minNumber = 200;
-        int maxNumber = 300;
-        int expected = 3;
 
         int actual = squares.enumeration(minNumber, maxNumber);
 
